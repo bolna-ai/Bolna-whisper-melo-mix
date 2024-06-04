@@ -1,5 +1,7 @@
 # Bolna With MeloTTS and WhisperASR
-Introducing our Dockerized solution! Seamlessly merge Bolna with [Whisper ASR](https://github.com/bolna-ai/streaming-whisper-server) and [Melo TTS](https://github.com/anshjoseph/MiloTTS-Server). This is docker compose by which you can host bolna server Whisper ASR, Melo TTS together in cloud just by clone this repo  and follow these simple steps to deploy ,but before that you have to make sure that you have [docker](https://docs.docker.com/engine/install/) and [docker compose](https://docs.docker.com/compose/install/) 
+Introducing our Dockerized solution! Seamlessly merge Bolna with [Whisper ASR](https://github.com/bolna-ai/streaming-whisper-server) and [Melo TTS](https://github.com/anshjoseph/MiloTTS-Server). This is docker compose by which you can host bolna server Whisper ASR, Melo TTS together in cloud just by clone this repo  and follow these simple steps to deploy ,but before that you have to make sure that you have [docker](https://docs.docker.com/engine/install/) and [docker compose](https://docs.docker.com/compose/install/)
+
+`note: before any thing else make sure you make .env with refer to .env-sample`
 
 ### Start Serices
 ```shell
@@ -11,6 +13,7 @@ the output something like this
 note: make sure that your all service were runing
 
 `let assume your server IP is 192.168.1.10`
+
 ### Creating Agent
 for creating agent you have to execute following command mention below
 ```shell
@@ -89,6 +92,8 @@ below given is the response
 ![alt text](./img/agent_res.png "agent response")
 copy the agent_id we have to use in next step
 
+if you want to [Change voice](#change-voice)
+
 ### Make call
 ```shell
 curl --location 'http://192.168.1.10:8001/call' \
@@ -110,7 +115,8 @@ docker compose down
 
 
 ### Changing the voice MeloTTS
-by default we resrtict to English TTS, and there are 5 option as mention below
+<a id="change-voice"></a>
+by default we resrtict Melo EN but there were 5 option for voice as mention below
 - 'EN-US' 
 - 'EN-BR' 
 - 'EN-AU' 
