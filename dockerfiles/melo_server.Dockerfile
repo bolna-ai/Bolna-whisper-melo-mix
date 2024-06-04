@@ -3,7 +3,7 @@ WORKDIR /app
 
 RUN apt-get update && apt-get install libgomp1 git -y
 RUN apt-get -y update && apt-get -y upgrade && apt-get install -y --no-install-recommends ffmpeg
-RUN git clone https://github.com/anshjoseph/MiloTTS-Server.git
+RUN git clone https://github.com/bolna-ai/MeloTTS
 RUN pip install fastapi uvicorn torchaudio
 RUN cp -a MiloTTS-Server/. . 
 RUN python -m pip cache purge
