@@ -150,11 +150,7 @@ This is demo using below prompt to the LLM
 ```
 
 
-<!-- <audio controls="1" controlslist="nodownload nofullscreen noremoteplayback" src="./audio/demo_audio.mp3">Your browser does not support the audio tag.</audio> -->
 
-<audio controls>
-  <source src="./audio/demo_audio.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
+[demo audio file](./audio/demo_audio.mp3)
 
 you can give prompt as per your use case 
