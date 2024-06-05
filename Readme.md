@@ -140,3 +140,14 @@ you have to just change the following section mention below
           }
 ```
 and rest of the config gonna be same mention above
+
+### Conservation DENO
+This is demo using below prompt to the LLM
+```json
+"task_1": {
+      "system_prompt": "You are assistant at Dr. Sharma clinic you have to book an appointment"
+}
+```
+<audio controls="1" controlslist="nodownload nofullscreen noremoteplayback" src="./audio/demo_audio.mp3">Your browser does not support the audio tag.</audio>
+
+you can give prompt as per your use case 
