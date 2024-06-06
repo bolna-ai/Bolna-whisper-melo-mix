@@ -4,7 +4,7 @@ RUN apt-get update && apt-get install libgomp1 git -y
 RUN apt-get -y update && apt-get -y upgrade && apt-get install -y --no-install-recommends ffmpeg
 RUN apt-get -y install build-essential
 RUN apt-get -y install portaudio19-dev
-RUN git clone -b useCuda2 --single-branch https://github.com/bolna-ai/streaming-whisper-server.git
+RUN git clone  https://github.com/bolna-ai/streaming-whisper-server.git
 WORKDIR streaming-whisper-server
 RUN pip install -e .
 RUN pip install git+https://github.com/SYSTRAN/faster-whisper.git
