@@ -3,7 +3,10 @@ WORKDIR /app
 
 RUN apt-get update && apt-get install libgomp1 git -y
 RUN apt-get -y update && apt-get -y upgrade && apt-get install -y --no-install-recommends ffmpeg
-RUN git clone https://github.com/bolna-ai/MeloTTS@cudaAnother
+RUN git clone https://github.com/bolna-ai/MeloTTS
+RUN git branch cudaAnother
+RUN git checkout cudaAnother
+RUN git pull origin cudaAnother
 RUN pip install fastapi uvicorn torchaudio
 RUN cp -a MeloTTS/. . 
 RUN python -m pip cache purge
