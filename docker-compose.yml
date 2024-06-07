@@ -49,7 +49,21 @@ services:
       - redis
     env_file:
       - .env
-  
+  ### VLLM SERVER ###
+  vllm-app:
+    image: vllm-app:latest
+    build:
+      context: .
+      dockerfile: dockerfiles/vllm_server.Dockerfile
+    ports:
+      - "8000:8000"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ['0']
+              capabilities: [gpu]
   ### whisper servers ###
   whisper-app:
     image: whisper-app:latest
