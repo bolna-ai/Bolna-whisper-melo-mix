@@ -1,4 +1,6 @@
 # Bolna With MeloTTS and WhisperASR
+`THIS SETUP NEED THREE GPU'S`
+
 Introducing our Dockerized solution! Seamlessly merge [Bolna](https://github.com/bolna-ai/bolna) with [Whisper ASR](https://github.com/bolna-ai/streaming-whisper-server) and [Melo TTS](https://github.com/anshjoseph/MiloTTS-Server) for telephone provider we use Twillo and for tunning we use ngrok. This is docker compose by which you can host bolna server Whisper ASR, Melo TTS together in cloud just by clone this repo  and follow these simple steps to deploy ,but before that you have to make sure that you have [docker](https://docs.docker.com/engine/install/) and [docker compose](https://docs.docker.com/compose/install/) and make a .env file refer to .env-sample and also put ngrok auth token in ngrok-config.yml file
 
 
@@ -140,6 +142,88 @@ you have to just change the following section mention below
           }
 ```
 and rest of the config gonna be same mention above
+
+
+### Launching own LLM using vllm
+```shell
+docker run --runtime nvidia --gpus 1  -v ~/.cache/huggingface:/root/.cache/huggingface --env "HUGGING_FACE_HUB_TOKEN=<huggingface token>" -p 8000:8000 --ipc=host  vllm/vllm-openai:latest  --model cognitivecomputations/dolphin-2.9-llama3-8b --max-model-len 8192
+```
+we are using `cognitivecomputations/dolphin-2.9-llama3-8b` model make sure you put your <u>huggingface token</u> here before runing this command and add this line to your .env file
+```txt
+.env
+
+LITELLM_MODEL_API_BASE=http://<your server IP>:8000/v1
+```
+and payload to create agent
+```json
+{
+  "agent_config": {
+    "agent_name": "Alfred",
+    "agent_type": "other",
+    "tasks": [
+      {
+        "task_type": "conversation",
+        "tools_config": {
+          "llm_agent": {
+            "model": "openai/cognitivecomputations/dolphin-2.9-llama3-8b",
+            "max_tokens": 123,
+            "agent_flow_type": "streaming",
+            "use_fallback": true,
+            "family": "ollama",
+            "temperature": 0.1,
+            "request_json": true,
+            "provider":"vllm"
+          },
+          "synthesizer": {
+            "provider": "melo",
+            "provider_config": {
+              "voice": "EN-AU",
+              "sample_rate": 8000,
+              "sdp_ratio" : 0.2,
+              "noise_scale" : 0.6,
+              "noise_scale_w" :  0.8,
+              "speed" : 1.0
+            },
+            "stream": true,
+            "buffer_size": 123,
+            "audio_format": "pcm"
+          },
+          "transcriber": {
+            "encoding": "linear16",
+            "language": "en",
+            "model": "whisper",
+            "stream": true,
+            "task": "transcribe"
+          },
+          "input": {
+            "provider": "twilio",
+            "format": "pcm"
+          },
+          "output": {
+            "provider": "twilio",
+            "format": "pcm"
+          }
+        },
+        "toolchain": {
+          "execution": "parallel",
+          "pipelines": [
+            [
+              "transcriber",
+              "llm",
+              "synthesizer"
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  "agent_prompts": {
+    "task_1": {
+      "system_prompt": "You are assistant at Dr. Sharma clinic you have to book an appointment"
+    }
+  }
+}
+```
 
 ### Conservation DENO
 This is demo using below prompt to the LLM
