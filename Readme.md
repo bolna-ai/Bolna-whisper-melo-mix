@@ -118,11 +118,11 @@ docker compose down
 ### Changing the voice MeloTTS
 <a id="change-voice"></a>
 by default we resrtict Melo EN but there were 5 option for voice as mention below
-- 'EN-US' 
-- 'EN-BR' 
-- 'EN-AU' 
-- 'EN-Default' 
-- 'EN_INDIA'
+- ['EN-US'](./audio/audio_sample/EN_US.wav) 
+- ['EN-BR'](./audio/audio_sample/EN-BR.wav) 
+- ['EN-AU'](./audio/audio_sample/EN-AU.wav) 
+- ['EN-Default'](./audio/audio_sample/EN-Default.wav) 
+- ['EN_INDIA'](./audio/audio_sample/EN_INDIA.wav)
 
 you have to just change the following section mention below
 ```JSON
@@ -154,6 +154,8 @@ This is demo using below prompt to the LLM
 
 
 
-[demo audio file](./audio/demo_audio.mp3)
+- [chat GPT 3.5 turbo 16k demo](./audio/demo_audio.mp3)
+- [vllm microsoft/Phi-3-small-8k-instruct demo](./audio/phi_demo.aac)
+- [vllm cognitivecomputations/dolphin-2.9-llama3-8b demo](./audio/ollama_demo.aac)
 
 you can give prompt as per your use case 
