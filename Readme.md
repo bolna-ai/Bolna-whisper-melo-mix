@@ -154,7 +154,7 @@ This is demo using below prompt to the LLM
 
 
 
-- [chat GPT 3.5 turbo 16k demo](./audio/demo_audio.mp3)
+- [chat GPT 3.5 turbo 16k demo](./audio/demo_audio.aac)
 - [vllm microsoft/Phi-3-small-8k-instruct demo](./audio/phi_demo.aac)
 - [vllm cognitivecomputations/dolphin-2.9-llama3-8b demo](./audio/ollama_demo.aac)
 
