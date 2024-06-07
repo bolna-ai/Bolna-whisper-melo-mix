@@ -151,6 +151,6 @@ This is demo using below prompt to the LLM
 
 
 
-[demo audio file](./audio/demo_audio.mp3)
+[chat GPT 3.5 turbo 16k demo](./audio/demo_audio.mp3)
 
 you can give prompt as per your use case 
