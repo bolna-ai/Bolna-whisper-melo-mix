@@ -29,19 +29,19 @@ curl --location 'http://192.168.1.10:5001/agent' \
         "task_type": "conversation",
         "tools_config": {
           "llm_agent": {
-            "model": "gpt-3.5-turbo-16k",
+            "model": "openai/cognitivecomputations/dolphin-2.9-llama3-8b",
             "max_tokens": 123,
             "agent_flow_type": "streaming",
             "use_fallback": true,
-            "family": "openai",
+            "family": "ollama",
             "temperature": 0.1,
             "request_json": true,
-            "provider":"openai"
+            "provider":"vllm"
           },
           "synthesizer": {
             "provider": "melo",
             "provider_config": {
-              "voice": "EN_INDIA",
+              "voice": "EN-AU",
               "sample_rate": 8000,
               "sdp_ratio" : 0.2,
               "noise_scale" : 0.6,
@@ -83,7 +83,7 @@ curl --location 'http://192.168.1.10:5001/agent' \
   },
   "agent_prompts": {
     "task_1": {
-      "system_prompt": "What is the Ultimate Question of Life, the Universe, and Everything?"
+      "system_prompt": "You are assistant at Dr. Sharma clinic you have to book an appointment"
     }
   }
 }'
