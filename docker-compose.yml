@@ -63,7 +63,7 @@ services:
         reservations:
           devices:
             - driver: nvidia
-              device_ids: ['1']
+              device_ids: ['0']
               capabilities: [gpu]
   ### Melo TTS ###
   melo-app:
@@ -78,6 +78,6 @@ services:
         reservations:
           devices:
             - driver: nvidia
-              device_ids: ['2']
+              device_ids: ['1']
               capabilities: [gpu]
 

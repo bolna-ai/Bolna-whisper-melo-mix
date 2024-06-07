@@ -1,5 +1,5 @@
 # Bolna With MeloTTS and WhisperASR
-`THIS SETUP NEED THREE GPU'S`
+`THIS SETUP NEED TWO GPU'S`
 
 Introducing our Dockerized solution! Seamlessly merge [Bolna](https://github.com/bolna-ai/bolna) with [Whisper ASR](https://github.com/bolna-ai/streaming-whisper-server) and [Melo TTS](https://github.com/anshjoseph/MiloTTS-Server) for telephone provider we use Twillo and for tunning we use ngrok. This is docker compose by which you can host bolna server Whisper ASR, Melo TTS together in cloud just by clone this repo  and follow these simple steps to deploy ,but before that you have to make sure that you have [docker](https://docs.docker.com/engine/install/) and [docker compose](https://docs.docker.com/compose/install/) and make a .env file refer to .env-sample and also put ngrok auth token in ngrok-config.yml file
 
@@ -118,11 +118,11 @@ docker compose down
 ### Changing the voice MeloTTS
 <a id="change-voice"></a>
 by default we resrtict Melo EN but there were 5 option for voice as mention below
-- 'EN-US' 
-- 'EN-BR' 
-- 'EN-AU' 
-- 'EN-Default' 
-- 'EN_INDIA'
+- ['EN-US'](./audio/audio_sample/EN_US.wav) 
+- ['EN-BR'](./audio/audio_sample/EN-BR.wav) 
+- ['EN-AU'](./audio/audio_sample/EN-AU.wav) 
+- ['EN-Default'](./audio/audio_sample/EN-Default.wav) 
+- ['EN_INDIA'](./audio/audio_sample/EN_INDIA.wav)
 
 you have to just change the following section mention below
 ```JSON
@@ -235,6 +235,6 @@ This is demo using below prompt to the LLM
 
 
 
-[demo audio file](./audio/demo_audio.mp3)
+[chat GPT 3.5 turbo 16k demo](./audio/demo_audio.aac)
 
 you can give prompt as per your use case 
